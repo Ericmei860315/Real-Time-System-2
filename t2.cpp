@@ -1,4 +1,4 @@
-#define _GNU_SOURCE
+#define _GNU_SOURCE 1
 #include <sched.h>
 #include <stdio.h>
 #include <iostream>
@@ -20,13 +20,21 @@ void setSchedulingPolicy (int policy, int priority)
 
 void workload_1ms (void)
 {
+        int repeat = 100000;    // tune this for the right amount of workload
         int total = 1;
-        int repeat = 100000; // tune this for the right amount of workload
         for (int i = 0; i <= repeat; i++)
         {
-              total = total+i;  // add some computation here (e.g., use sqrt() in cmath)
+            total = total+1;
+            total = total*100;
+            sqrt(total);
+            total+10;
+            total/5;
+            sqrt(total);
         }
+
 }
+
+
 
 void pinCPU (int cpu_number)
 {
@@ -42,10 +50,11 @@ void pinCPU (int cpu_number)
     }
 }
 
+sig_atomic_t count = 0;
 sig_atomic_t t = 0;
 void collectData (int param)
 {
-    std::cout << ::t << std::endl;
+    std::cout << (double)::count/::t << std::endl;
 }
 
 int main (void)
@@ -56,7 +65,7 @@ int main (void)
 
     int period = 7000; // unit: microsecond
     int delta;
-    setSchedulingPolicy (SCHED_FIFO, 99);
+    setSchedulingPolicy (SCHED_FIFO, 98);
     while (1)
     {
         std::chrono::system_clock::time_point startTime = std::chrono::system_clock::now();
@@ -69,6 +78,7 @@ int main (void)
         ::t++;
 	if (delta > period)
         {
+	    ::count++;
             continue;
         }
         else

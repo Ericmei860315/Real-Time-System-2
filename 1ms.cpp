@@ -1,4 +1,4 @@
-#define _GNU_SOURCE
+#define _GNU_SOURCE 1
 #include <sched.h>
 #include <stdio.h>
 #include <iostream>
@@ -23,6 +23,11 @@ void workload_1ms (void)
         for (int i = 0; i <= repeat; i++)
         {
 	    total = total+1;
+	    total = total*100;
+	    sqrt(total);
+	    total+10;
+	    total/5;
+	    sqrt(total);
         }
 	
 }
