@@ -1,0 +1,4 @@
+We can see the priorty change makes the both miss ratio become similar.
+Because the t1 task's period and execution time are smaller than t3.
+So the priorty exchange wouldn't make the number of miss ratio exchange.
+It becomes similar.
