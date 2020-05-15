@@ -1,0 +1,10 @@
+#Answer1
+
+Because if we don't set the CPU frequency,the delta will become unstable.
+Nowadays CPU is more and more powerful.
+So if we don't set the frequency,we may not see the priority inversion.
+
+#Answer2
+
+I think because gRPC is easy to implement,and it's topic have the priority.
+It match our class's major point.
