@@ -1,0 +1,5 @@
+Pros:
+分開來做的話,他從Thread Pool如果要傳三個thread原本只要三次傳送時間加上一次拉出priority queue的時間，但因為不是decoupling所以變成要拉三次的時間。
+
+Cons
+能保持一致性，但當單一thread在對priority queue作動作時，其他的不能使用。

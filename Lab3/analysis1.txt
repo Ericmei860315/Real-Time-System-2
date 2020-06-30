@@ -1,0 +1,3 @@
+EDF:第一個進來的是FIFO,之後就是在priority queue中排序deadline短的先做。
+RM:使用priority queue來排序，讓period小的先做，大的排在其後面。
+FIFO:使用priority queue，就依照順序執行，先到的先做，後面來的就要等先到的。
